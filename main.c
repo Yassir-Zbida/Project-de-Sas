@@ -24,7 +24,7 @@ typedef struct{
 
 etudiants etudiant[max_etudiants];
 int nb_etudiant = 0;
-
+int idd=0 ;
 // Ajouter Seul Eudiant //
 void ajouterSeulEtudiant(){
     int choix;
@@ -54,10 +54,10 @@ void ajouterSeulEtudiant(){
              etudiant[nb_etudiant].date_naissance.annee < 1900 || etudiant[nb_etudiant].date_naissance.annee > 2008);
     do{
         printf("Departements :\t 1- Math \t 2- Physique \t 3- Informatique \t 4- Economie \t  5- Francais \n");
-        printf("Entrer Departement : ");
+        printf("Entrer choix (1-5) : ");
         scanf("%d", &choix);
 
-    } while (choix <= 0 || choix >= 6);
+    } while (choix <= 0 || choix > 6);
     switch (choix){
     case 1:
         strcpy(etudiant[nb_etudiant].depatement, Depatement1);
@@ -159,10 +159,10 @@ void modifierEtudiant(){
         printf("Entrer la nouvelle departement a modifie : \n");
         do{
         printf("Departements :\t 1- Math \t 2- Physique \t 3- Informatique \t 4- Economie \t  5- Francais \n");
-        printf("Entrer Departement : ");
+        printf("Entrer choix(1-5) : ");
         scanf("%d", &choix1);
 
-    } while (choix1 <= 0 || choix1 >= 6);
+    } while (choix1 <= 0 || choix1 > 6);
       switch (choix1){
       case 1:
         strcpy(etudiant[id].depatement, Depatement1);
@@ -473,8 +473,8 @@ void supprimerEtudiant() {
         printf("ID invalide.\n");
         return;
     }
-    id--;
-    for (int i = id; i < nb_etudiant - 1; i++) {
+
+    for (int i = id-1 ; i < nb_etudiant - 1; i++) {
         etudiant[i] = etudiant[i + 1];
     }
 
@@ -561,10 +561,14 @@ void afficheMenu() {
     printf("1. Tri alphabetique des etudiants par leur nom \n");
     printf("2. Tri des etudiants par moyenne generale (du plus eleve au plus faible)\n");
     printf("3. Tri des etudiants selon leur statut de reussite\n");
+     printf("4. Affiche simple\n");
     printf("0. Return \n");
     printf("choix : ");
     scanf("%d", &choix);
      switch (choix) {
+        case 4:
+               affiche();
+               break;
         case 1:
             system("cls");
             printf("Choisissez l'ordre (1 pour A-Z, 2 pour Z-A) : ");
