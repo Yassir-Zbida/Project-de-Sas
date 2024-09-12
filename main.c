@@ -119,6 +119,7 @@ void modifierEtudiant(){
     printf("3.Date de naissance\n");
     printf("4.Departement\n");
     printf("5.Note\n");
+    printf("0.Return\n");
     scanf("%d", &choix);
     switch (choix)
     {
@@ -179,6 +180,10 @@ void modifierEtudiant(){
         strcpy(etudiant[id].depatement, Depatement5);
         break;
 
+      case 0:
+            system("cls");
+            main();
+            break ;
       default:
         printf("choix invalide ");
         break;
@@ -204,6 +209,7 @@ void rechercheeEtudiant() {
     printf("Choisissez une methode de recherche :\n");
     printf("1. Rechercher par nom\n");
     printf("2. Afficher les etudiants d'un departement specifique\n");
+    printf("0. Return\n");
     scanf("%d", &choix);
     int trouve;
 
@@ -231,6 +237,7 @@ void rechercheeEtudiant() {
             printf("3. Informatique\n");
             printf("4. Economie\n");
             printf("5. Francais\n");
+            printf("0. Return\n");
             scanf("%d", &depachoix);
 
             switch (depachoix) {
@@ -303,13 +310,20 @@ void rechercheeEtudiant() {
                         printf("Aucun etudiant trouve dans le departement '%s'.\n", Depatement5);
                     }
                     break;
-
+                   case 0:
+                   system("cls");
+                   main();
+                   break ;
                 default:
                     printf("Choix invalide.\n");
                     return;
             }
             break;
         }
+        case 0:
+            system("cls");
+            main();
+            break ;
         default:
             printf("Choix invalide.\n");
             break;
@@ -547,6 +561,7 @@ void afficheMenu() {
     printf("1. Tri alphabetique des etudiants par leur nom \n");
     printf("2. Tri des etudiants par moyenne generale (du plus eleve au plus faible)\n");
     printf("3. Tri des etudiants selon leur statut de reussite\n");
+    printf("0. Return \n");
     printf("choix : ");
     scanf("%d", &choix);
      switch (choix) {
@@ -565,21 +580,14 @@ void afficheMenu() {
             system("cls");
             trierParStatutReussite();
             break;
+        case 0:
+            system("cls");
+            main();
+            break ;
         default:
             printf("Choix invalide.\n");
             break;
     }
-
-
-    /*if(nb_etudiant == 0){
-        printf("Aucun Etudiant en Liste.\n");
-    }
-    else{
-       for(i=0 ; i<nb_etudiant ; i++){
-                printf("ID : %d \t Nom : %s \t Prenom : %s \t Date de naissance : %d/%d/%d \t Departement : %s  \t Note generale : %.2f\n",etudiant[i].id, etudiant[i].nom, etudiant[i].prenom, etudiant[i].date_naissance.jours, etudiant[i].date_naissance.mois, etudiant[i].date_naissance.annee, etudiant[i].depatement, etudiant[i].note);
-            }
-    }*/
-
 }
 // Affiche function //
 void affiche() {
@@ -602,12 +610,17 @@ int choix;
         printf("2. Afficher le nombre d'etudiants dans chaque departement\n");
         printf("3. Afficher les etudiants ayant une note generale superieure a un certain seuil\n");
         printf("4. Afficher les 3 etudiants ayant les meilleures notes\n");
-        printf("5. Afficher le nombre d'etudiants ayant reussi dans chaque departement\n\n");
+        printf("5. Afficher le nombre d'etudiants ayant reussi dans chaque departement\n");
+        printf("0. Return\n\n");
         printf("************************************************************************************\n");
         printf("Choisissez une option: ");
         scanf("%d", &choix);
 
         switch (choix) {
+            case 0:
+               system("cls");
+               main();
+               break ;
             case 1:
                 system("cls");
                 afficherTotalEtudiants();
@@ -873,3 +886,4 @@ int main()
 
     return 0;
 }
+
